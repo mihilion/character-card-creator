@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import {
   SET_RACE_COMMAND_PORT,
@@ -16,7 +16,7 @@ import {
   GetRaceCommandPort,
 } from '../../../application/ports/primary/command/get-race.command-port';
 import { Router } from '@angular/router';
-import { Race } from '../../../model/model';
+import { Race } from '../../../../../../character/src/lib/application/character.model';
 
 @Component({
   selector: 'lib-choose-race',
@@ -31,7 +31,7 @@ export class ChooseRaceComponent implements OnInit {
     { key: 'elf', viewValue: 'Elf' },
     { key: 'ogre', viewValue: 'Ogre' },
   ]);
-  readonly raceForm: FormGroup = new FormGroup({ raceKey: new FormControl() });
+  readonly raceForm: FormGroup = new FormGroup({ raceKey: new FormControl('', Validators.required) });
 
   constructor(
     @Inject(SET_RACE_COMMAND_PORT)

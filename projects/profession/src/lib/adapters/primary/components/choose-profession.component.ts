@@ -5,10 +5,10 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, of } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
-import { Profession, Race } from '../../../model/model';
+import { map } from 'rxjs/operators';
+
 import {
   SET_PROFESSION_COMMAND_PORT,
   SetProfessionCommandPort,
@@ -16,12 +16,16 @@ import {
 import {
   GET_RACE_COMMAND_PORT,
   GetRaceCommandPort,
-} from '../../../application/ports/primary/command/get-race.command-port';
+} from '../../../../../../race/src/lib/application/ports/primary/command/get-race.command-port';
 import {
   GET_PROFESSION_COMMAND_PORT,
   GetProfessionCommandPort,
 } from '../../../application/ports/primary/command/get-profession.command-port';
 import { SetProfessionCommand } from '../../../application/ports/primary/command/set-profession.command';
+import {
+  Profession,
+  Race,
+} from '../../../../../../character/src/lib/application/character.model';
 
 @Component({
   selector: 'lib-choose-profession',
@@ -32,7 +36,7 @@ import { SetProfessionCommand } from '../../../application/ports/primary/command
 })
 export class ChooseProfessionComponent implements OnInit {
   readonly professionForm: FormGroup = new FormGroup({
-    professionKey: new FormControl(),
+    professionKey: new FormControl('', Validators.required),
   });
   public raceKey: Race['key'] = 'human';
 
@@ -76,9 +80,11 @@ export class ChooseProfessionComponent implements OnInit {
   );
 
   onProfessionFormSubmitted(professionForm: FormGroup): void {
-    this._setProfessionCommandPort.setProfession(<SetProfessionCommand>{
-      professionKey: professionForm.get('professionKey')?.value,
-    }).subscribe();
+    this._setProfessionCommandPort
+      .setProfession(<SetProfessionCommand>{
+        professionKey: professionForm.get('professionKey')?.value,
+      })
+      .subscribe();
   }
 
   ngOnInit(): void {

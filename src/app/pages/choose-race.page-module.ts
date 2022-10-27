@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import {
   CharacterLocalStorageModule,
   CharacterStateModule,
-  ChooseRaceComponentModule,
 } from '@character';
 import { ChooseRacePage } from './choose-race.page';
+import { ChooseRaceComponentModule } from '@race';
 
 @NgModule({
   imports: [

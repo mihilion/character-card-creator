@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import {
   CharacterLocalStorageModule,
   CharacterStateModule,
-  ChooseProfessionComponentModule,
 } from '@character';
 import { ChooseProfessionPage } from './choose-profession.page';
+import { ChooseProfessionComponentModule } from '@profession';
 
 @NgModule({
   imports: [

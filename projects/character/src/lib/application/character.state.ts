@@ -1,18 +1,18 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
-import { SetRaceCommandPort } from './ports/primary/command/set-race.command-port';
-import { GetRaceCommandPort } from './ports/primary/command/get-race.command-port';
-import { SetProfessionCommandPort } from './ports/primary/command/set-profession.command-port';
-import { GetProfessionCommandPort } from './ports/primary/command/get-profession.command-port';
+import { SetRaceCommandPort } from '../../../../race/src/lib/application/ports/primary/command/set-race.command-port';
+import { GetRaceCommandPort } from '../../../../race/src/lib/application/ports/primary/command/get-race.command-port';
+import { SetProfessionCommandPort } from '../../../../profession/src/lib/application/ports/primary/command/set-profession.command-port';
+import { GetProfessionCommandPort } from '../../../../profession/src/lib/application/ports/primary/command/get-profession.command-port';
 import {
   CHARACTER_CONTEXT_PORT,
   CharacterContextPort,
 } from './ports/secondary/context/character.context-port';
-import { SetRaceCommand } from './ports/primary/command/set-race.command';
-import { GetRaceCommand } from './ports/primary/command/get-race.command';
-import { SetProfessionCommand } from './ports/primary/command/set-profession.command';
-import { GetProfessionCommand } from './ports/primary/command/get-profession.command';
+import { SetRaceCommand } from '../../../../race/src/lib/application/ports/primary/command/set-race.command';
+import { GetRaceCommand } from '../../../../race/src/lib/application/ports/primary/command/get-race.command';
+import { SetProfessionCommand } from '../../../../profession/src/lib/application/ports/primary/command/set-profession.command';
+import { GetProfessionCommand } from '../../../../profession/src/lib/application/ports/primary/command/get-profession.command';
 
 @Injectable()
 export class CharacterState
