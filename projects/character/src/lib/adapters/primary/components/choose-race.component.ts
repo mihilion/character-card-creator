@@ -36,9 +36,9 @@ export class ChooseRaceComponent implements OnInit {
   constructor(
     @Inject(SET_RACE_COMMAND_PORT)
     private _setRaceCommandPort: SetRaceCommandPort,
-    private router: Router,
     @Inject(GET_RACE_COMMAND_PORT)
-    private _getRaceCommandPort: GetRaceCommandPort
+    private _getRaceCommandPort: GetRaceCommandPort,
+    private router: Router
   ) {}
 
   onRaceFormSubmitted(raceForm: FormGroup): void {

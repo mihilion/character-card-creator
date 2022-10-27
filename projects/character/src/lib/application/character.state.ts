@@ -1,9 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { switchMap, take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, switchMap, take } from 'rxjs/operators';
 import { SetRaceCommandPort } from './ports/primary/command/set-race.command-port';
 import { GetRaceCommandPort } from './ports/primary/command/get-race.command-port';
 import { SetProfessionCommandPort } from './ports/primary/command/set-profession.command-port';
+import { GetProfessionCommandPort } from './ports/primary/command/get-profession.command-port';
 import {
   CHARACTER_CONTEXT_PORT,
   CharacterContextPort,
@@ -11,10 +12,15 @@ import {
 import { SetRaceCommand } from './ports/primary/command/set-race.command';
 import { GetRaceCommand } from './ports/primary/command/get-race.command';
 import { SetProfessionCommand } from './ports/primary/command/set-profession.command';
+import { GetProfessionCommand } from './ports/primary/command/get-profession.command';
 
 @Injectable()
 export class CharacterState
-  implements SetRaceCommandPort, GetRaceCommandPort, SetProfessionCommandPort
+  implements
+    SetRaceCommandPort,
+    GetRaceCommandPort,
+    SetProfessionCommandPort,
+    GetProfessionCommandPort
 {
   constructor(
     @Inject(CHARACTER_CONTEXT_PORT)
@@ -29,7 +35,7 @@ export class CharacterState
           name: data.name,
           gender: data.gender,
           raceKey: command.raceKey,
-          professionKey: data.professionKey,
+          professionKey: data.raceKey === command.raceKey ? data.professionKey : undefined,
         })
       )
     );
@@ -53,5 +59,17 @@ export class CharacterState
         })
       )
     );
+  }
+
+  getProfession(): Observable<GetProfessionCommand> {
+    return this._characterContextPort
+      .getState()
+      .pipe(
+        take(1),
+        map(
+          (state) =>
+            <GetProfessionCommand>{ professionKey: state.professionKey }
+        )
+      );
   }
 }
