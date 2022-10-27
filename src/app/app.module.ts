@@ -7,17 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OldChooseRaceComponent } from './choose-race/old-choose-race.component';
 import { OldChooseProfessionComponent } from './choose-profession/old-choose-profession.component';
 import { OldChooseSkillsComponent } from './choose-skills/old-choose-skills.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
-import {CommonModule} from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     OldChooseRaceComponent,
     OldChooseProfessionComponent,
-    OldChooseSkillsComponent
+    OldChooseSkillsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +26,9 @@ import {CommonModule} from '@angular/common';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

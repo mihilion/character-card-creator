@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {StateService} from '../state.service';
+import { Component, OnInit } from '@angular/core';
+import { StateService } from '../state.service';
 
 interface Profession {
   value: string;
@@ -9,14 +9,12 @@ interface Profession {
 @Component({
   selector: 'app-choose-profession',
   templateUrl: './old-choose-profession.component.html',
-  styleUrls: ['./old-choose-profession.component.scss']
+  styleUrls: ['./old-choose-profession.component.scss'],
 })
 export class OldChooseProfessionComponent implements OnInit {
-
   public raceValue = 'warrior';
 
-  constructor(private stateService: StateService) {
-  }
+  constructor(private stateService: StateService) {}
 
   ngOnInit(): void {
     this.raceValue = this.stateService.state.raceValue;
@@ -28,37 +26,40 @@ export class OldChooseProfessionComponent implements OnInit {
       [
         {
           value: 'warrior',
-          viewValue: 'Warrior'
+          viewValue: 'Warrior',
         },
         {
           value: 'wizard',
-          viewValue: 'Wizard'
+          viewValue: 'Wizard',
         },
         {
           value: 'hunter',
-          viewValue: 'Hunter'
-        }
-      ]
-    ], [
+          viewValue: 'Hunter',
+        },
+      ],
+    ],
+    [
       'elf',
       [
         {
           value: 'warrior',
-          viewValue: 'Warrior'
+          viewValue: 'Warrior',
         },
         {
           value: 'hunter',
-          viewValue: 'Hunter'
-        }
-      ]
-    ], [
-      'ogre', [
+          viewValue: 'Hunter',
+        },
+      ],
+    ],
+    [
+      'ogre',
+      [
         {
           value: 'warrior',
-          viewValue: 'Warrior'
-        }
-      ]
-    ]
+          viewValue: 'Warrior',
+        },
+      ],
+    ],
   ]);
 
   saveProfession(professionValue: string) {

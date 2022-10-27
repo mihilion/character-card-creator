@@ -7,8 +7,12 @@ import { SET_PROFESSION_COMMAND_PORT } from './ports/primary/command/set-profess
 @NgModule({
   imports: [],
   declarations: [],
-  providers: [CharacterState, { provide: SET_RACE_COMMAND_PORT, useExisting: CharacterState }, { provide: GET_RACE_COMMAND_PORT, useExisting: CharacterState }, { provide: SET_PROFESSION_COMMAND_PORT, useExisting: CharacterState }],
-  exports: []
+  providers: [
+    CharacterState,
+    { provide: SET_RACE_COMMAND_PORT, useExisting: CharacterState },
+    { provide: GET_RACE_COMMAND_PORT, useExisting: CharacterState },
+    { provide: SET_PROFESSION_COMMAND_PORT, useExisting: CharacterState },
+  ],
+  exports: [],
 })
-export class CharacterStateModule {
-}
+export class CharacterStateModule {}

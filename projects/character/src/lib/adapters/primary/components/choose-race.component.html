@@ -4,12 +4,11 @@
     <mat-label>Choose race</mat-label>
     <mat-select formControlName="raceKey">
       <mat-option *ngFor="let race of races$ | async" [value]="race.key">
-        {{race.viewValue}}
+        {{ race.viewValue }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <div>
     <button type="submit" mat-button>Next: Choose profession</button>
   </div>
-
 </form>

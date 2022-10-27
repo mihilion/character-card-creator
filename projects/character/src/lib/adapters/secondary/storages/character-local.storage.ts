@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CharacterContextPort } from '../../../application/ports/secondary/context/character.context-port';
 import { CharacterContext } from '../../../application/ports/secondary/context/character.context';
 
@@ -13,7 +13,9 @@ export class CharacterLocalStorage implements CharacterContextPort {
 
   getState(): Observable<CharacterContext> {
     // get from localstorage
-    const character = JSON.parse(localStorage.getItem('characterContext') || "{}");
+    const character = JSON.parse(
+      localStorage.getItem('characterContext') || '{}'
+    );
     return of(character);
   }
 }

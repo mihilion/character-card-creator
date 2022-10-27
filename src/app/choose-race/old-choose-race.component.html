@@ -3,11 +3,16 @@
   <mat-label>Choose race</mat-label>
   <mat-select #race>
     <mat-option *ngFor="let race of races" [value]="race.value">
-      {{race.viewValue}}
+      {{ race.viewValue }}
     </mat-option>
   </mat-select>
 </mat-form-field>
 <div>
-  <button (click)="saveRace(race.value)" mat-button routerLink="/choose-profession">Next: Choose profession</button>
+  <button
+    (click)="saveRace(race.value)"
+    mat-button
+    routerLink="/choose-profession"
+  >
+    Next: Choose profession
+  </button>
 </div>
-

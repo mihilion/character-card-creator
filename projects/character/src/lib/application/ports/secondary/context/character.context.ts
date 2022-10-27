@@ -1,4 +1,4 @@
-import {Profession, Race} from '../../../../model/model';
+import { Profession, Race } from '../../../../model/model';
 
 export interface CharacterContext {
   readonly name: string;

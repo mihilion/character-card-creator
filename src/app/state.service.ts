@@ -6,10 +6,9 @@ export interface State {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StateService {
-
   private _state: State;
 
   get state(): State {
@@ -23,7 +22,4 @@ export class StateService {
   constructor() {
     this._state = <State>{};
   }
-
-
-
 }

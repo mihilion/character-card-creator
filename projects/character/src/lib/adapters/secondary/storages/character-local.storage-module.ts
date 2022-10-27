@@ -5,8 +5,10 @@ import { CHARACTER_CONTEXT_PORT } from '../../../application/ports/secondary/con
 @NgModule({
   imports: [],
   declarations: [],
-  providers: [CharacterLocalStorage, { provide: CHARACTER_CONTEXT_PORT, useExisting: CharacterLocalStorage }],
-  exports: []
+  providers: [
+    CharacterLocalStorage,
+    { provide: CHARACTER_CONTEXT_PORT, useExisting: CharacterLocalStorage },
+  ],
+  exports: [],
 })
-export class CharacterLocalStorageModule {
-}
+export class CharacterLocalStorageModule {}

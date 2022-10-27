@@ -14,11 +14,15 @@ const routes: Routes = [
   { path: 'choose-profession', component: OldChooseProfessionComponent },
   { path: 'choose-skills', component: OldChooseSkillsComponent },
   { path: 'choose-race-page', component: ChooseRacePage },
-  { path: 'choose-profession-page', component: ChooseProfessionPage }
+  { path: 'choose-profession-page', component: ChooseProfessionPage },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), ChooseRacePageModule, ChooseProfessionPageModule],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes),
+    ChooseRacePageModule,
+    ChooseProfessionPageModule,
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,4 +1,4 @@
-import {Profession} from '../../../../model/model';
+import { Profession } from '../../../../model/model';
 
 export interface SetProfessionCommand {
   readonly professionKey: Profession['key'];

@@ -1,12 +1,19 @@
-import {NgModule} from '@angular/core';
-import {CharacterLocalStorageModule, CharacterStateModule, ChooseRaceComponentModule} from '@character';
-import {ChooseRacePage} from './choose-race.page';
+import { NgModule } from '@angular/core';
+import {
+  CharacterLocalStorageModule,
+  CharacterStateModule,
+  ChooseRaceComponentModule,
+} from '@character';
+import { ChooseRacePage } from './choose-race.page';
 
 @NgModule({
-  imports: [ChooseRaceComponentModule, CharacterStateModule, CharacterLocalStorageModule],
+  imports: [
+    ChooseRaceComponentModule,
+    CharacterStateModule,
+    CharacterLocalStorageModule,
+  ],
   declarations: [ChooseRacePage],
   providers: [],
-  exports: [ChooseRacePage]
+  exports: [ChooseRacePage],
 })
-export class ChooseRacePageModule {
-}
+export class ChooseRacePageModule {}
