@@ -1,5 +1,5 @@
 import {Race} from '../../../../model/model';
 
-export interface SetRaceCommand {
+export interface GetRaceCommand {
   readonly raceKey: Race['key'];
 }

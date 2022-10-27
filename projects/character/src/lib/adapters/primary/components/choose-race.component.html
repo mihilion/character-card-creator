@@ -1,12 +1,10 @@
 <form [formGroup]="raceForm" (ngSubmit)="onRaceFormSubmitted(raceForm)">
-<!--  <input type="text" formControlName="raceId" placeholder="Race Id"><input type="submit" value="Submit">-->
-
   <h4>Choose race</h4>
   <mat-form-field appearance="fill">
     <mat-label>Choose race</mat-label>
-    <mat-select formControlName="raceId">
-      <mat-option *ngFor="let race of races$ | async" [value]="race.id">
-        {{race.value}}
+    <mat-select formControlName="raceKey">
+      <mat-option *ngFor="let race of races$ | async" [value]="race.key">
+        {{race.viewValue}}
       </mat-option>
     </mat-select>
   </mat-form-field>

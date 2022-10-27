@@ -1,6 +1,8 @@
+import {Profession, Race} from '../../../../model/model';
+
 export interface CharacterContext {
   readonly name: string;
   readonly gender: string;
-  readonly raceId: number;
-  readonly professionId: number;
+  readonly raceKey: Race['key'];
+  readonly professionKey: Profession['key'];
 }

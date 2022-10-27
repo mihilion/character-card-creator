@@ -1,16 +1,10 @@
-import {ChangeDetectionStrategy, Component, Inject, ViewEncapsulation} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import {Observable, of} from 'rxjs';
-import {
-  SET_RACE_COMMAND_PORT,
-  SetRaceCommandPort
-} from '../../../application/ports/primary/command/set-race.command-port';
-import {Router} from '@angular/router';
-
-interface Race {
-  id: number;
-  value: string;
-}
+import {ChangeDetectionStrategy, Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Observable, of } from 'rxjs';
+import { SET_RACE_COMMAND_PORT, SetRaceCommandPort } from '../../../application/ports/primary/command/set-race.command-port';
+import { GET_RACE_COMMAND_PORT, GetRaceCommandPort } from '../../../application/ports/primary/command/get-race.command-port';
+import { Router } from '@angular/router';
+import {Race} from '../../../model/model';
 
 @Component({
   selector: 'lib-choose-race',
@@ -19,21 +13,25 @@ interface Race {
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChooseRaceComponent {
+export class ChooseRaceComponent implements OnInit {
 
   races$: Observable<Race[]> = of([
-    {id: 1, value: 'Human'},
-    {id: 2, value: 'Elf'},
-    {id: 3, value: 'Ogre'},
+    { key: 'human', viewValue: 'Human' },
+    { key: 'elf', viewValue: 'Elf' },
+    { key: 'ogre', viewValue: 'Ogre' },
   ]);
-  readonly raceForm: FormGroup = new FormGroup({raceId: new FormControl()});
+  readonly raceForm: FormGroup = new FormGroup({ raceKey: new FormControl() });
 
-  constructor(@Inject(SET_RACE_COMMAND_PORT) private _setRaceCommandPort: SetRaceCommandPort, private router: Router) {
+  constructor(@Inject(SET_RACE_COMMAND_PORT) private _setRaceCommandPort: SetRaceCommandPort, private router: Router, @Inject(GET_RACE_COMMAND_PORT) private _getRaceCommandPort: GetRaceCommandPort) {
   }
 
   onRaceFormSubmitted(raceForm: FormGroup): void {
-    this._setRaceCommandPort.setRace({raceId: raceForm.get('raceId')?.value}).subscribe(() => {
-      this.router.navigate(['/choose-profession']);
+    this._setRaceCommandPort.setRace({ raceKey: raceForm.get('raceKey')?.value }).subscribe(() => {
+      this.router.navigate(['/choose-profession-page']);
     });
+  }
+
+  ngOnInit(): void {
+    this._getRaceCommandPort.getRace().subscribe(command => this.raceForm.get('raceKey')?.patchValue(command.raceKey));
   }
 }

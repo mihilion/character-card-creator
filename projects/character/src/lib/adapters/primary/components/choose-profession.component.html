@@ -1,0 +1,17 @@
+<form [formGroup]="professionForm" (ngSubmit)="onProfessionFormSubmitted(professionForm)">
+  <h2>raceKey:</h2> {{ this.raceKey }}
+  <h4>Choose profession</h4>
+  <mat-form-field appearance="fill" >
+    <mat-label>Choose profession</mat-label>
+    <mat-select formControlName="professionKey">
+      <mat-option *ngFor="let profession of professions$ | async" [value]="profession.key">
+        {{profession.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div>
+    <button type="button" mat-button routerLink="/choose-race-page">Prev: Choose race</button>
+    <button type="submit" mat-button>Next: Choose skills</button>
+  </div>
+
+</form>
