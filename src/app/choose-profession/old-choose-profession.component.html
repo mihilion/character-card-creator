@@ -2,7 +2,7 @@
 <mat-form-field appearance="fill">
   <mat-label>Choose profession</mat-label>
   <mat-select #profession>
-    <mat-option *ngFor="let profession of professions[raceValue]" [value]="profession.value">
+    <mat-option *ngFor="let profession of professions.get(raceValue)" [value]="profession.value">
       {{profession.viewValue}}
     </mat-option>
   </mat-select>

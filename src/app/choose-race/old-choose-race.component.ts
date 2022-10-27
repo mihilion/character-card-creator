@@ -8,10 +8,10 @@ interface Race {
 
 @Component({
   selector: 'app-choose-race',
-  templateUrl: './choose-race.component.html',
-  styleUrls: ['./choose-race.component.scss']
+  templateUrl: './old-choose-race.component.html',
+  styleUrls: ['./old-choose-race.component.scss']
 })
-export class ChooseRaceComponent implements OnInit {
+export class OldChooseRaceComponent implements OnInit {
 
   constructor(private stateService: StateService) { }
 

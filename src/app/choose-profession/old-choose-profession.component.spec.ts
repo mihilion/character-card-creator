@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChooseProfessionComponent } from './choose-profession.component';
+import { OldChooseProfessionComponent } from './old-choose-profession.component';
 
 describe('ChooseProfessionComponent', () => {
-  let component: ChooseProfessionComponent;
-  let fixture: ComponentFixture<ChooseProfessionComponent>;
+  let component: OldChooseProfessionComponent;
+  let fixture: ComponentFixture<OldChooseProfessionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChooseProfessionComponent ]
+      declarations: [ OldChooseProfessionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChooseProfessionComponent);
+    fixture = TestBed.createComponent(OldChooseProfessionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

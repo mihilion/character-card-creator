@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChooseRaceComponent } from './choose-race.component';
+import { OldChooseRaceComponent } from './old-choose-race.component';
 
 describe('ChooseRaceComponent', () => {
-  let component: ChooseRaceComponent;
-  let fixture: ComponentFixture<ChooseRaceComponent>;
+  let component: OldChooseRaceComponent;
+  let fixture: ComponentFixture<OldChooseRaceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChooseRaceComponent ]
+      declarations: [ OldChooseRaceComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChooseRaceComponent);
+    fixture = TestBed.createComponent(OldChooseRaceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
