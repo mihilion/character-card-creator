@@ -26,6 +26,7 @@ import {
   Profession,
   Race,
 } from '../../../../../../character/src/lib/application/character.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'lib-choose-profession',
@@ -46,7 +47,8 @@ export class ChooseProfessionComponent implements OnInit {
     @Inject(GET_RACE_COMMAND_PORT)
     private _getRaceCommandPort: GetRaceCommandPort,
     @Inject(GET_PROFESSION_COMMAND_PORT)
-    private _getProfessionCommandPort: GetProfessionCommandPort
+    private _getProfessionCommandPort: GetProfessionCommandPort,
+    private router: Router,
   ) {}
 
   professions: Profession[] = [
@@ -84,7 +86,9 @@ export class ChooseProfessionComponent implements OnInit {
       .setProfession(<SetProfessionCommand>{
         professionKey: professionForm.get('professionKey')?.value,
       })
-      .subscribe();
+      .subscribe(() => {
+        this.router.navigate(['/choose-skills'])
+      });
   }
 
   ngOnInit(): void {
